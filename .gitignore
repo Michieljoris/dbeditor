@@ -1,0 +1,5 @@
+node_modules/*
+www/images/*
+!node_modules/node-static
+npm-debug.log 
+greenglass_images
