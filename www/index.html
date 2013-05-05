@@ -1,0 +1,33 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org" lang="en">
+  <head id="head--"><title>Scaffold</title><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!--[if lte IE 8]>
+    <script>
+      // The ieshiv takes care of our ui.directives, bootstrap module directives and 
+      // AngularJS's ng-view, ng-include, ng-pluralize and ng-switch directives.
+      // However, IF you have custom directives (yours or someone else's) then
+      // enumerate the list of tags in window.myCustomTags
+
+      window.myCustomTags = [ 'yourDirective', 'somebodyElsesDirective' ]; // optional
+    </script>
+    <script src="js/angular-ui-ieshiv.js"></script>
+    <![endif]-->						    
+<script src="http://localhost:9090/skewer"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"><link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css"><link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.2.custom.css"><link rel="stylesheet" type="text/css" href="css/angular-ui.css"><link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+  <body id="ng:app" ng:app="myApp" >
+    <div id="wrapper--"><div id="mytiny">
+  <textarea ui-tinymce ng-model="tinymce"></textarea>
+  <p>{{tinymce}}</p>
+</div>
+ 
+<script type="text/javascript" src="thirdpartyjs/jquery-1.9.1.min.js"></script><script type="text/javascript" src="thirdpartyjs/bootstrap.js"></script><script type="text/javascript" src="thirdpartyjs/angular.min.js"></script><script type="text/javascript" src="thirdpartyjs/angular-ui.js"></script><script type="text/javascript" src="thirdpartyjs/ui-bootstrap-tpls-0.2.0.js"></script><script type="text/javascript" src="thirdpartyjs/modernizr.js"></script><script type="text/javascript" src="thirdpartyjs/tiny_mce/tiny_mce.js"></script><script type="text/javascript" src="thirdpartyjs/tiny_mce/jquery.tinymce.js"></script>
+<script type="text/javascript" src="js/angular.js"></script>
+</div> 
+    
+  </body>
+</html>	

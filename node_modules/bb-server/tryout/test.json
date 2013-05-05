@@ -1,0 +1,5 @@
+{ 
+    "forward": [
+	{ "prefix": "bb",
+	  "to": "http://localhost:5984" }
+]}

@@ -1,0 +1,25 @@
+{
+    "name": "scaffold",
+    "version": "0.1.0",
+    "author": "Michiel van Oosten",
+    "description": "Scaffold",
+    "repository": {
+	"type": "git",
+	"url": "git://github.com/michieljoris/scaffold.git"
+    },
+    "scripts": {
+	"start": "node ./server/server.js"
+    },
+    "dependencies": {
+	"bb-server": "*",
+	"html-builder": "*",
+	"nodemailer": "*",
+	"dbox": "*"
+	 
+    },
+    "bugs": {
+	"url": "https://github.com/michieljoris/firstdoor/issues"
+    },
+    "analyze": false,
+    "preferGlobal": "true"
+}
