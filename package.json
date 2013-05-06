@@ -1,11 +1,11 @@
 {
-    "name": "scaffold",
+    "name": "dbeditor",
     "version": "0.1.0",
     "author": "Michiel van Oosten",
     "description": "Scaffold",
     "repository": {
 	"type": "git",
-	"url": "git://github.com/michieljoris/scaffold.git"
+	"url": "git://github.com/michieljoris/dbeditor.git"
     },
     "scripts": {
 	"start": "node ./server/server.js"
@@ -18,7 +18,7 @@
 	 
     },
     "bugs": {
-	"url": "https://github.com/michieljoris/firstdoor/issues"
+	"url": "https://github.com/michieljoris/dbeditor/issues"
     },
     "analyze": false,
     "preferGlobal": "true"

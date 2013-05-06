@@ -3,7 +3,7 @@
 /*jshint strict:false unused:true smarttabs:true eqeqeq:true immed: true undef:true*/
 /*jshint maxparams:7 maxcomplexity:7 maxlen:150 devel:true newcap:false*/ 
 
-// var mode = 'edit';
+console.log("Started..");
 // var mode = 'edit';
 var myApp= angular.module('myApp', ['ui', 'ui.bootstrap'])
     .directive('compile', function($compile) {
@@ -39,3 +39,4 @@ myApp.value('ui.config', {
 
 function DemoCtrl($scope) {
 }
+

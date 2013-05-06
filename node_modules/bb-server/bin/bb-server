@@ -6,9 +6,10 @@ var bbServer = require('../lib/bb-server.js'),
 
 if (argv.h || argv.help) {
     console.log([
-        "usage: bb-server [path] [options]",
+        "usage: bb-server [root] [options]",
         "",
         "options:",
+        "  --root              Root to serve the files from",
         "  -p --port          Port to use [HTTPSERVER_PORT || 8080]",
         "  -a --address       Address to use [HTTPSERVER_IPADDR || 0.0.0.0]",
         "  -b --block         Block directory contents",

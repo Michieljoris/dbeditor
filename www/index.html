@@ -1,11 +1,8 @@
 <!doctype html>
 <html xmlns:ng="http://angularjs.org" lang="en">
-  <head id="head--"><title>Scaffold</title><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
-<!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
+  <head id="head"><title>Dropbox Text Editor</title><meta charset='utf-8'><meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'><meta content='' name='description'><meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 <!--[if lte IE 8]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script>
       // The ieshiv takes care of our ui.directives, bootstrap module directives and 
       // AngularJS's ng-view, ng-include, ng-pluralize and ng-switch directives.
@@ -17,17 +14,26 @@
     <script src="js/angular-ui-ieshiv.js"></script>
     <![endif]-->						    
 <script src="http://localhost:9090/skewer"></script>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css"><link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css"><link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.2.custom.css"><link rel="stylesheet" type="text/css" href="css/angular-ui.css"><link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css"><link rel="stylesheet" type="text/css" href="css/h5bp.css"><link rel="stylesheet" type="text/css" href="css/bootstrap.css"><link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css"><link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.2.custom.css"><link rel="stylesheet" type="text/css" href="css/angular-ui.css"><link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-  <body id="ng:app" ng:app="myApp" >
-    <div id="wrapper--"><div id="mytiny">
+  <body id="ng:app" ng:app="myApp" ><!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+
+
+<h3>Hello from the body</h3>
+
+<div id="mytiny">
   <textarea ui-tinymce ng-model="tinymce"></textarea>
   <p>{{tinymce}}</p>
-</div>
- 
-<script type="text/javascript" src="thirdpartyjs/jquery-1.9.1.min.js"></script><script type="text/javascript" src="thirdpartyjs/bootstrap.js"></script><script type="text/javascript" src="thirdpartyjs/angular.min.js"></script><script type="text/javascript" src="thirdpartyjs/angular-ui.js"></script><script type="text/javascript" src="thirdpartyjs/ui-bootstrap-tpls-0.2.0.js"></script><script type="text/javascript" src="thirdpartyjs/modernizr.js"></script><script type="text/javascript" src="thirdpartyjs/tiny_mce/tiny_mce.js"></script><script type="text/javascript" src="thirdpartyjs/tiny_mce/jquery.tinymce.js"></script>
+<script type="text/javascript" src="thirdpartyjs/jquery-1.9.1.min.js"></script><script type="text/javascript" src="thirdpartyjs/noconsole.js"></script><script type="text/javascript" src="thirdpartyjs/bootstrap.js"></script><script type="text/javascript" src="thirdpartyjs/angular.min.js"></script><script type="text/javascript" src="thirdpartyjs/angular-ui.js"></script><script type="text/javascript" src="thirdpartyjs/ui-bootstrap-tpls-0.2.0.js"></script><script type="text/javascript" src="thirdpartyjs/modernizr.js"></script><script type="text/javascript" src="thirdpartyjs/tiny_mce/tiny_mce.js"></script><script type="text/javascript" src="thirdpartyjs/tiny_mce/jquery.tinymce.js"></script>
 <script type="text/javascript" src="js/angular.js"></script>
-</div> 
-    
-  </body>
+<script>
+  var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src='//www.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+</body>
 </html>	

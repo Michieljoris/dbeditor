@@ -40,20 +40,29 @@ var exports = {
     //to generate a string to save to the file defined in 'out'.
     ,partials: {
         ids: {
-            title: '<title>Scaffold</title>'
+            title: '<title>Dropbox Text Editor</title>'
             ,skewer:'<script src="http://localhost:9090/skewer"></script>'
-            // ,hello_world: '<h2>Hello world. Build on this scaffold!!!</h2>'
+            ,recaptcha: '<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>'
+            ,hello_world: '<h2>Hello world. Build on this scaffold!!!</h2>'
         }
         ,metaBlock : {
             id: 'meta',
-            tags: [ { charset:'utf-8' },
-                    { name: "viewport"
-                      ,content: "width=device-width, initial-scale=1, maximum-scale=1"
-                    } ]
+            tags: [ { charset:'utf-8' }
+                    ,{ content:"IE=edge,chrome=1",
+                       "http-equiv":"X-UA-Compatible"
+                    }
+                    ,{ content:"",
+                       name:"description"
+                    }
+                    ,{ name: "viewport"
+                      ,content: "width=device-width, initial-scale=1, maximum-scale=1"}
+                  ]
         }
         ,linkBlock:  {
             id: 'myLinkBlock',
             files:  [
+                'normalize',
+                'h5bp',
                 'bootstrap'
                 ,'bootstrap-responsive'
                 ,'jquery-ui-1.10.2.custom'
@@ -73,6 +82,7 @@ var exports = {
                 id: 'vendorJsBlock',
                 files: [
                     'jquery-1.9.1.min.js'
+                    ,'noconsole'
                     // ,'jquery-ui-1.10.2.custom.min'
                     ,'bootstrap'
                     ,'angular.min'
@@ -89,7 +99,6 @@ var exports = {
             ,{
                 id: 'myJsBlock',
                 files: [
-                    
                     'angular'
                 ],
                 path: 'js/'
@@ -127,6 +136,7 @@ var exports = {
             {   pathOut: 'www/'
                 ,out: 'index.html' //optional, relative to root
                 ,src: 'html/basicPage.html'
+               ,tagIdPostfix: '' //can be overridden per template
                 //Maps tag ids to partial ids. Tag ids have to be
                 //postfixed with two dashes in the template. Partials
                 //with an extension will be loaded from the partials
@@ -137,13 +147,12 @@ var exports = {
                     head: ['title', 'meta', 'html/ieshim',  'skewer', 'headJsBlock', 'myLinkBlock'
                            // ,'_linkBlock'
                           ],
-                    wrapper: [
-                        // 'hello_world'
-                        'html/body'
-                        ,'vendorJsBlock'
-                        ,'myJsBlock'
-                        
-                    ]
+                   "ng:app": ['html/body.html'
+                              ,'vendorJsBlock'
+                              // '_scriptBlock',
+                              ,'myJsBlock'
+                              // 'recaptcha',
+                              ,'html/google_analytics.html']
                 }
             }
             
