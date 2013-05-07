@@ -1212,6 +1212,7 @@ angular.module('ui.directives').directive('uiTinymce', ['ui.config', function (u
           },
           // Update model on keypress
           handle_event_callback: function (e) {
+              console.log('keypress');
             if (this.isDirty()) {
               this.save();
               ngModel.$setViewValue(elm.val());
@@ -1222,7 +1223,10 @@ angular.module('ui.directives').directive('uiTinymce', ['ui.config', function (u
           },
           // Update model when calling setContent (such as from the source editor popup)
           setup: function (ed) {
+              console.log('setting up', ed);
+            // ed.on("SetContent", function (ed, o) {
             ed.onSetContent.add(function (ed, o) {
+                console.log('in setcontent');
               if (ed.isDirty()) {
                 ed.save();
                 ngModel.$setViewValue(elm.val());

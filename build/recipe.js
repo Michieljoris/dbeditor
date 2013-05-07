@@ -89,10 +89,13 @@ var exports = {
                     ,'angular-ui'
                     ,'ui-bootstrap-tpls-0.2.0'
                     ,'modernizr'
+                    //tinymce 4
+                    // ,'tinymce/tinymce.min'
+                    // ,'tinymce/jquery.tinymce.min'
+                    //tinymce 3
                     ,'tiny_mce/tiny_mce'
                     ,'tiny_mce/jquery.tinymce'
                     // ,'router'
-                    
                 ],
                 path: 'thirdpartyjs/'
             }

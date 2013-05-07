@@ -33,7 +33,7 @@ var myApp= angular.module('myApp', ['ui', 'ui.bootstrap'])
 
 myApp.value('ui.config', {
    tinymce: {
-      theme: 'simple'
+      // theme: 'simple'
    }
 });
 
