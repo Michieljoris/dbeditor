@@ -1,5 +1,4 @@
-
-/*global mode:false angular:false $:false jQuery:false console:false*/
+/*global Cookie:false tinymce:false mode:false angular:false $:false jQuery:false console:false*/
 /*jshint strict:false unused:true smarttabs:true eqeqeq:true immed: true undef:true*/
 /*jshint maxparams:7 maxcomplexity:7 maxlen:150 devel:true newcap:false*/ 
 
@@ -83,16 +82,15 @@ function readFile($scope, dbclient, fileName) {
         $scope.$apply();
         console.log(data);
         $("#myeditor").tinymce().setContent(data);
-
+        editor.importFile(fileName, data);
     });
 }
 
-function writeFile($scope, dbclient) {
+function writeFile($scope, dbclient, content) {
     if (!$scope.fileName) {
         console.log("Error: File name is not set!! Not saving..");
         return;
     }
-    var content = $("#myeditor").tinymce().getContent();
     
     dbclient.writeFile($scope.fileName, content, function(error, stat) {
         if (error) {
@@ -107,18 +105,36 @@ function writeFile($scope, dbclient) {
 function doSomething(dbclient, $scope) {
     $scope.authenticated = true;
     getUserInfo(dbclient, $scope);
+    var path = Cookie.get("dbeditorPath") || '/';
     // readDir($scope, dbclient);
-    buildMetaData(dbclient, '/', function() {
-        console.log("Done!!!");
-        console.log(allMetaData);
-        var rootStat = allMetaData['/'];
-        $scope.pathArray = [allMetaData['/']];
-        rootStat.path = '/';
-        $scope.entries = rootStat.contents;
-        $scope.$apply();
+    $scope.fileClick({
+        path: path,
+        name: '[up]',
+        isFolder: true
     });
-    
-    // $scope.$apply();
+    // getMetaData(dbclient, path, function() {
+    //     var rootStat = allMetaData[path];
+    //     $scope.pathArray = makePathArray(path);
+    //     rootStat.path = path;
+        
+    //     if (path !== '/')  {
+    //         var metaData = allMetaData[path];
+    //         if (!metaData) {
+    //             metaData = {
+    //                 path: path,
+    //                 name: '[up]',
+    //                 isFolder: true
+    //             };
+    //         }
+    //         $scope.entries = [metaData].concat(stat.contents);
+    //     }
+    //     else
+    //         $scope.entries = stat.contents;
+        
+        
+    //     $scope.entries = rootStat.contents;
+    //     $scope.$apply();
+    // });
 }
 
 function clearScreen($scope) {
@@ -136,14 +152,67 @@ function makePathArray(fullPath) {
     var path = '';
     arr.forEach(function(e) {
         path += '/' + e;
-        result.push(allMetaData[path]);
+        var metaData = allMetaData[path];
+        if (!metaData) {
+            metaData = {
+                path: path,
+                realName: e || 'dropbox',
+                isFolder: true
+            };
+            
+        }
+        result.push(metaData);
         if (e === '') path = '';
-        console.log(e);
+        // console.log(e);
     });
+    console.log(result);
     return result;
 }
 
     
+var editor;
+function initEpicEditor() {
+    console.log('epiceditor');
+    var opts = {
+        container: 'epiceditor',
+        textarea: null,
+        basePath: 'epiceditor',
+        clientSideStorage: true,
+        localStorageName: 'epiceditor',
+        useNativeFullsreen: true,
+        // parser: marked,
+        file: {
+            name: 'epiceditor',
+            defaultContent: '',
+            autoSave: 100
+        },
+        theme: {
+            base: '/themes/base/epiceditor.css',
+            preview: '/themes/preview/bartik.css',
+            editor: '/themes/editor/epic-dark.css'
+        },
+        button: {
+            preview: true,
+            fullscreen: true
+        },
+        focusOnLoad: false,
+        shortcut: {
+            modifier: 18,
+            fullscreen: 70,
+            preview: 80
+        },
+        string: {
+            togglePreview: 'Toggle Preview Mode',
+            toggleEdit: 'Toggle Edit Mode',
+            toggleFullscreen: 'Enter Fullscreen'
+        }
+    };
+    editor = new EpicEditor(opts);
+    editor.load(function () {
+        console.log("Editor loaded.");
+    });
+    
+}
 
 
 function MainCntl($scope, dbclient) {
@@ -180,23 +249,54 @@ function MainCntl($scope, dbclient) {
     $scope.fileClick = function(entry) {
         // console.log(entry);
         if (entry.isFolder) {
-            var parent = entry.path.slice(0, entry.path.lastIndexOf('/'));
-            if (parent === "") parent = "/";
-            $scope.pathArray = makePathArray(entry.path);
-            // console.log($scope.pathArray);
-            if (entry.path !== '/') 
-                $scope.entries = [allMetaData[parent]].concat(allMetaData[entry.path].contents);
-            else
-                $scope.entries = allMetaData[entry.path].contents;
+            getMetaData(dbclient, entry.path, function(stat) {
+                if (!stat) {
+                    console.log("Error. Couldn't get stat for " + entry.path);
+                    return;
+                }
+                Cookie.set("dbeditorPath", entry.path);
+                var parent = entry.path.slice(0, entry.path.lastIndexOf('/'));
+                if (parent === "") parent = "/";
+                // console.log($scope.pathArray);
+                if (entry.path !== '/')  {
+                    var metaData = allMetaData[parent];
+                    if (!metaData) {
+                        metaData = {
+                            path: parent,
+                            // realName: e || 'dropbox',
+                            name: '[up]',
+                            isFolder: true
+                        };
+            
+                    }
+                    $scope.entries = [metaData].concat(stat.contents);
+                }
+                else
+                    $scope.entries = stat.contents;
+                $scope.pathArray = makePathArray(entry.path);
+                $scope.$apply();
+                
+            });
             
         }
         else readFile($scope, dbclient, entry.path);
     };
     
-    tinymce.settings.save_onsavecallback= function(tiny) {
-        writeFile($scope, dbclient);
+    tinymce.settings.save_onsavecallback= function() {
+        var content = $("#myeditor").tinymce().getContent();
+        writeFile($scope, dbclient, content);
         return true;
     };
+    
+    $scope.saveMarkdown = function() {
+        var content = editor.exportFile();
+        writeFile($scope, dbclient, content);
+    };
+    
+    initEpicEditor();
+    // setTimeout(function() {
+    //     console.log("timed out");
+    // },2000) ;
     
 }
 
@@ -223,12 +323,17 @@ function getMetaData(dbclient, path, callback) {
             return;
         }
         if (!stat.isFolder) {
-            console.log("Retrieved metadata for file " + path);
+            // console.log("Retrieved metadata for file " + path);
             callback();
             return;
         }
-        console.log('stat for ' + path + ' is ' , stat);
-        console.log('contents for ' + path + ' is ' , contents);
+        // console.log('stat for ' + path + ' is ' , stat);
+        // console.log('contents for ' + path + ' is ' , contents);
+        contents.forEach(function(c) {
+            if (c.isFolder) {
+                c.name += '/';
+            }
+        });
         stat.contents = contents;
         stat.realName = stat.name || 'dropbox';
         stat.name = '[up]';
@@ -237,30 +342,30 @@ function getMetaData(dbclient, path, callback) {
     });
 }
 
-function buildMetaData(dbclient, path, done) {
-    console.log('building metadata');
-    getMetaData(dbclient, path, function(metaData) {
-        if (metaData && metaData.contents) {
-            var dirCount = 0;
-            metaData.contents.forEach(function(c) {
-                if (c.isFolder) dirCount++;
-            });
-            if (!dirCount) done();
-            else {
-                metaData.contents.forEach(function(c) {
-                    if (c.isFolder) {
-                        c.name += '/';
-                        buildMetaData(dbclient, c.path, function() {
-                            dirCount--;
-                            if (!dirCount) done(); 
-                        });
-                    }
-                });
-            } 
-        } 
-        else done();
-    });
-}
+// function buildMetaData(dbclient, path, done) {
+//     console.log('building metadata');
+//     getMetaData(dbclient, path, function(metaData) {
+//         if (metaData && metaData.contents) {
+//             var dirCount = 0;
+//             metaData.contents.forEach(function(c) {
+//                 if (c.isFolder) dirCount++;
+//             });
+//             if (!dirCount) done();
+//             else {
+//                 metaData.contents.forEach(function(c) {
+//                     if (c.isFolder) {
+//                         c.name += '/';
+//                         buildMetaData(dbclient, c.path, function() {
+//                             dirCount--;
+//                             if (!dirCount) done(); 
+//                         });
+//                     }
+//                 });
+//             } 
+//         } 
+//         else done();
+//     });
+// }
 
 
 var showError = function(error) {

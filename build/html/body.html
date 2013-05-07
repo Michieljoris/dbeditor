@@ -5,7 +5,7 @@
   
   <div class="row">
     <div class="span10">
-      {{userInfo.name}}
+      Dropbox: {{userInfo.name}}
     </div>
     <div class="span2">
       <button id="signin-button" ng-hide="authenticated" ng-click="signin()" class="btn">Sign in to dropbox</button>
@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="row">
-    <div id="sidebar" class="span2">
+    <div id="sidebar" class="span3">
       <div class="well">
 	<ul>
 	  <li ng-repeat="entry in entries">
@@ -34,8 +34,22 @@
       </div>
       
     </div>
-    <div class="span10">
-      <textarea id="myeditor"></textarea>
+    
+    <div class="span9 tabbable"> <!-- Only required for left/right tabs -->
+      <ul class="nav nav-tabs">
+	<li class="active"><a href="#tab1" data-toggle="tab">Markdown</a></li>
+	<li><a href="#tab2" data-toggle="tab">Wysiwyg</a></li>
+      </ul>
+      <div class="tab-content">
+	<div class="tab-pane active" id="tab1">
+	  <div id="epiceditor" class="epiceditors"></div>
+	</div>
+	<button id="saveMdButton" ng-click="saveMarkdown()"
+	class="btn pull-right">Save to dropbox</button>
+	<div class="tab-pane" id="tab2">
+	  <textarea id="myeditor"></textarea>
+	</div>
+      </div>
     </div>
 
   </div>

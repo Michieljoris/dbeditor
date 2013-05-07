@@ -44,6 +44,7 @@ var exports = {
             ,skewer:'<script src="http://localhost:9090/skewer"></script>'
             ,recaptcha: '<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>'
             // ,dropboxjs : '<script src="//cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.9.2/dropbox.min.js"> </script>'
+            ,epiceditor : '<script src="epiceditor/js/epiceditor.js"> </script>'
             ,hello_world: '<h2>Hello world. Build on this scaffold!!!</h2>'
         }
         ,metaBlock : {
@@ -93,6 +94,7 @@ var exports = {
                     //tinymce 4
                     ,'tinymce/tinymce.min'
                     ,'tinymce/jquery.tinymce.min'
+                    ,'cookie'
                     ,'dropbox'
                     //tinymce 3
                     // ,'tiny_mce/tiny_mce'
@@ -155,6 +157,7 @@ var exports = {
                           ],
                    "ng:app": ['html/body.html'
                               ,'vendorJsBlock'
+                              ,'epiceditor'
                               // '_scriptBlock',
                               ,'myJsBlock'
                               // 'recaptcha',

@@ -2885,7 +2885,7 @@ input[type="submit"].btn.btn-mini {
   clear: both;
 }
 .tab-content {
-  overflow: auto;
+  /* overflow: auto; */
 }
 .tabs-below > .nav-tabs,
 .tabs-right > .nav-tabs,

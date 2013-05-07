@@ -21,7 +21,7 @@ var options = {
     ,"dir": true
     ,"index": false
     ,"silent": false
-    ,"port": 6003 
+    ,"port": 6004 
     ,"secure": false
     ,postHandlers: {
         // "/" : save

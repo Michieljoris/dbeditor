@@ -11,4 +11,24 @@ body {
     margin-top:3px;
 }
 
+#sidebar .well {
+    padding-left:0px;
+    padding-right:0px;
+}
 
+.tab-content {
+    overflow-y:left;
+    overflow-x:left;
+}
+
+.epiceditors {
+    border: 1px solid #000000;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.75);
+    height: 600px;
+    /* margin-top: 20px; */
+}
+
+#saveMdButton {
+    margin-top:10px;
+}
