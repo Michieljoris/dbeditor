@@ -65,7 +65,7 @@ exports.handleGet = function(req, res) {
                             return;
                         }
                         res.write("Now connected with " + reply.display_name);
-                        res.write("<p>I can access the following folder: Apps/firstdoor");
+                        res.write("<p>I can access the following folder: Apps/wysiwyg_editor");
                         res.end('<p>Thank you!!');
                     });
                     console.log("Access token was saved!");

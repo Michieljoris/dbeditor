@@ -1,11 +1,42 @@
 <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
+<div class="container" ng-controller="MainCntl">
+  
+  <div class="row">
+    <div class="span10">
+      {{userInfo.name}}
+    </div>
+    <div class="span2">
+      <button id="signin-button" ng-hide="authenticated" ng-click="signin()" class="btn">Sign in to dropbox</button>
+      <button id="signout-button" ng-show="authenticated"
+	      ng-click="signout()" class="btn">Sign out of dropbox</button>
+    </div>
+  </div>
+  <div class="row">
+    <h3 class="span12">{{fileName}}</h3>
+   </div> 
+  
+  <div class="row">
+    <div class="span12">
+      <em><span ng-repeat="entry in pathArray">/<a href="#" ng-click="fileClick(entry)">{{entry.realName}}</a></span></em>
+    </div>
+  </div>
+  <div class="row">
+    <div id="sidebar" class="span2">
+      <div class="well">
+	<ul>
+	  <li ng-repeat="entry in entries">
+	    <a ng-href="#" ng-click="fileClick(entry)">{{entry.name}}</a>
+	  </li>
+	</ul>
+	
+      </div>
+      
+    </div>
+    <div class="span10">
+      <textarea id="myeditor"></textarea>
+    </div>
 
-
-
-<h3>Hello from the body</h3>
-
-<div id="mytiny">
-  <textarea ui-tinymce ng-model="tinymce"></textarea>
-  <p>{{tinymce}}</p>
+  </div>
+</div>

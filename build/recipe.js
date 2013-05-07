@@ -43,6 +43,7 @@ var exports = {
             title: '<title>Dropbox Text Editor</title>'
             ,skewer:'<script src="http://localhost:9090/skewer"></script>'
             ,recaptcha: '<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>'
+            // ,dropboxjs : '<script src="//cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.9.2/dropbox.min.js"> </script>'
             ,hello_world: '<h2>Hello world. Build on this scaffold!!!</h2>'
         }
         ,metaBlock : {
@@ -90,11 +91,12 @@ var exports = {
                     ,'ui-bootstrap-tpls-0.2.0'
                     ,'modernizr'
                     //tinymce 4
-                    // ,'tinymce/tinymce.min'
-                    // ,'tinymce/jquery.tinymce.min'
+                    ,'tinymce/tinymce.min'
+                    ,'tinymce/jquery.tinymce.min'
+                    ,'dropbox'
                     //tinymce 3
-                    ,'tiny_mce/tiny_mce'
-                    ,'tiny_mce/jquery.tinymce'
+                    // ,'tiny_mce/tiny_mce'
+                    // ,'tiny_mce/jquery.tinymce'
                     // ,'router'
                 ],
                 path: 'thirdpartyjs/'
@@ -102,7 +104,8 @@ var exports = {
             ,{
                 id: 'myJsBlock',
                 files: [
-                    'angular'
+                    'tinymce_settings'
+                    ,'angular'
                 ],
                 path: 'js/'
             }
@@ -147,7 +150,7 @@ var exports = {
                 //converted to html. Partials in an array will be
                 //concatenated before inserted at the tag id element
                 ,mapping: {
-                    head: ['title', 'meta', 'html/ieshim',  'skewer', 'headJsBlock', 'myLinkBlock'
+                    head: ['title', 'meta', 'html/ieshim',  'skewer',  'headJsBlock', 'myLinkBlock'
                            // ,'_linkBlock'
                           ],
                    "ng:app": ['html/body.html'
