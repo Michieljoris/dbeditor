@@ -91,8 +91,12 @@ function writeFile($scope, dbclient, content) {
         console.log("Error: File name is not set!! Not saving..");
         return;
     }
-    
-    dbclient.writeFile($scope.fileName, content, function(error, stat) {
+    console.log($scope.fileName);
+    var fileName = $scope.fileName;
+    if (fileName.indexOf('/dropbox') !== -1) {
+        fileName = fileName.slice(8);
+    }
+    dbclient.writeFile(fileName, content, function(error, stat) {
         if (error) {
             showError(error);  // Something went wrong.
         }
