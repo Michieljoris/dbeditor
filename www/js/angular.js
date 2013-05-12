@@ -145,7 +145,8 @@ function clearScreen($scope) {
     $scope.authenticated = false;
     $scope.entries = [];
     $scope.userInfo = {};
-    $("#myeditor").tinymce().setContent("Open a file");
+    // $("#myeditor").tinymce().setContent("Sign in to dropbox!!");
+    // editor.importFile('dummy', 'Sign in to dropbox!!');
     $scope.$apply();
 }
 
@@ -221,16 +222,6 @@ function initEpicEditor() {
 
 function MainCntl($scope, dbclient) {
     console.log("In MainCntl") ;
-    window.client = dbclient;
-    dbclient.authenticate({interactive: false}, function(error, client) {
-        if (error) {  showError(error); }
-        else {
-            setTimeout(function() {
-                doSomething(dbclient, $scope);
-            }, 1);
-        }
-    });
-    
     $scope.signin = function() {
         dbclient.reset();
         dbclient.authenticate(function(error, client) {
@@ -301,6 +292,23 @@ function MainCntl($scope, dbclient) {
     // setTimeout(function() {
     //     console.log("timed out");
     // },2000) ;
+    
+    
+    window.client = dbclient;
+    dbclient.authenticate({interactive: false}, function(error, client) {
+        console.log("is authenticated?",client.isAuthenticated());
+        if (!client.isAuthenticated()) {
+            $scope.authenticated = false;
+            return;
+        }
+        if (error) {  showError(error); }
+        else {
+            setTimeout(function() {
+                doSomething(dbclient, $scope);
+            }, 1);
+        }
+    });
+    
     
 }
 
