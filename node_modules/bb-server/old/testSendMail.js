@@ -9,7 +9,7 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
     service: "Gmail",
     auth: {
         user: "michieljoris@gmail.com",
-        pass: "Thismy1aosp."
+        pass: ""
     }
 });
 

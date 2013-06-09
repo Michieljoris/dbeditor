@@ -99,9 +99,11 @@ function writeFile($scope, dbclient, content) {
     dbclient.writeFile(fileName, content, function(error, stat) {
         if (error) {
             showError(error);  // Something went wrong.
+            alert('something went wrong..' + error);
         }
         else {
             console.log("Saved!", stat);
+            alert('Saved!!');
         }
     });
 }
