@@ -1,0 +1,192 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed May  8 02:53:22 2013
+;; Desktop file format version 206
+;; Emacs version 24.2.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq register-alist '((101 file . "~/emacs/init.el") (98 file . "~/.bashrc") (107 file . "~/.emacs.d/my-config/keys.el") (105 file . "~/.emacs.d/init.el")))
+(setq file-name-history '("~/www/sites/dbeditor/emacs_desktop" "~/www/sites/dbeditor/.gitignore" "~/www/sites/dbeditor/emacs_desktop" "/home/michieljoris/www/sites/dbeditor/.gitignore" "~/www/sites/dbeditor/.gitignore" "/home/michieljoris/www/sites/dbeditor/.gitignore" "/home/michieljoris/www/sites/dbeditor/README.md" "/home/michieljoris/www/sites/dbeditor/server/server.js" "/home/michieljoris/www/sites/dbeditor/server/devserver.js" "/home/michieljoris/www/sites/dbeditor/sync-to-aws.sh" "/home/michieljoris/www/sites/firstdoor/build/views/view_epic_partial.html" "/home/michieljoris/www/sites/firstdoor/www/css/main.css" "/home/michieljoris/www/sites/firstdoor/www/js/filebrowserCntl.js" "/home/michieljoris/www/sites/dbeditor/www/css/bootstrap.css" "/home/michieljoris/www/sites/dbeditor/www/js/tinymce_settings.js" "/home/michieljoris/www/sites/dbeditor/www/thirdpartyjs/cookie.js" "/home/michieljoris/www/sites/dbeditor/build/recipe.js" "~/www/sites/dbeditor/www/thirdpartyjs/cookie.js" "~/www/scaffold/www/thirdpartyjs/cookie.js" "/home/michieljoris/www/scaffold/www/thirdpartyjs/angular-cookies.min.js" "/home/michieljoris/mysrc/javascript/roster/app/_attachments/lib/Cookie.js" "/home/michieljoris/www/sites/dbeditor/www/css/main.css" "/home/michieljoris/www/sites/dbeditor/build/html/body.html" "/home/michieljoris/www/sites/dbeditor/www/js/angular.js" "/home/michieljoris/www/sites/dbeditor/server/sync.js" "/home/michieljoris/www/sites/firstdoor/www/js/filebrowser.js" "/home/michieljoris/www/sites/firstdoor/www/js/filebrowserCntl.js" "~/emacs/packages/my-elisp-files/modes.el" "~/www/personalinfo/build/html/basicPage.html" "~/www/personalinfo/build/recipe.js"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/.gitignore"
+  ".gitignore"
+  'fundamental-mode
+  '(window-number-mode global-auto-revert-mode)
+  12
+  '(1 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/README.md"
+  "README.md"
+  'markdown-mode
+  '(auto-fill-mode undo-tree-mode window-number-mode autopair-mode global-auto-revert-mode)
+  307
+  '(308 nil)
+  nil
+  nil
+  '((tab-width . 4) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/server/server.js"
+  "server.js"
+  'js2-mode
+  '(undo-tree-mode flymake-mode moz-minor-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-mode hs-minor-mode)
+  1030
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/server/devserver.js"
+  "devserver.js"
+  'js2-mode
+  '(undo-tree-mode flymake-mode moz-minor-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-mode hs-minor-mode)
+  807
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/sync-to-aws.sh"
+  "sync-to-aws.sh"
+  'sh-mode
+  '(undo-tree-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode)
+  217
+  '(200 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/www/css/main.css"
+  "main.css"
+  'css-mode
+  '(undo-tree-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-css-mode)
+  462
+  '(500 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/build/html/body.html"
+  "body.html"
+  'html-mode
+  '(auto-fill-mode undo-tree-mode window-number-mode autopair-mode global-auto-revert-mode)
+  1701
+  '(1739 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/www/js/angular.js"
+  "angular.js"
+  'js2-mode
+  '(undo-tree-mode flymake-mode moz-minor-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-mode hs-minor-mode)
+  8222
+  '(8471 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/firstdoor/build/views/view_epic_partial.html"
+  "view_epic_partial.html"
+  'html-mode
+  '(auto-fill-mode undo-tree-mode window-number-mode autopair-mode global-auto-revert-mode)
+  228
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/firstdoor/www/css/main.css"
+  "main.css"
+  'css-mode
+  '(undo-tree-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-css-mode)
+  9160
+  '(9338 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/build/recipe.js"
+  "recipe.js"
+  'js2-mode
+  '(undo-tree-mode flymake-mode moz-minor-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-mode hs-minor-mode)
+  5464
+  '(2915 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/firstdoor/www/js/filebrowserCntl.js"
+  "filebrowserCntl.js"
+  'js2-mode
+  '(undo-tree-mode flymake-mode moz-minor-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-mode hs-minor-mode)
+  1308
+  '(5520 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/www/css/bootstrap.css"
+  "bootstrap.css"
+  'css-mode
+  '(undo-tree-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-css-mode)
+  64773
+  '(1 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/www/js/tinymce_settings.js"
+  "tinymce_settings.js"
+  'js2-mode
+  '(undo-tree-mode flymake-mode moz-minor-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-mode hs-minor-mode)
+  1328
+  '(76 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/www/thirdpartyjs/cookie.js"
+  "cookie.js"
+  'js2-mode
+  '(undo-tree-mode moz-minor-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-mode hs-minor-mode)
+  1341
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/michieljoris/www/sites/dbeditor/server/sync.js"
+  "sync.js"
+  'js2-mode
+  '(undo-tree-mode flymake-mode moz-minor-mode auto-complete-mode window-number-mode autopair-mode global-auto-revert-mode skewer-mode hs-minor-mode)
+  3244
+  '(3353 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
