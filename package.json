@@ -11,7 +11,7 @@
 	"start": "node ./server/server.js"
     },
     "dependencies": {
-	"bb-server": "*",
+	"bb-server": "0.3.5",
 	"html-builder": "*",
 	"nodemailer": "*",
 	"dbox": "*"
